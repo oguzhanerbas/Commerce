@@ -17,7 +17,12 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
                 exception.Message, exception.GetType().Name,
                 httpContext.Response.StatusCode = StatusCodes.Status500InternalServerError
             ),
-            _ => 
+            NotFoundException =>
+            (
+                exception.Message, exception.GetType().Name,
+                httpContext.Response.StatusCode = StatusCodes.Status404NotFound
+            ),
+            _ =>
             (
                 exception.Message, exception.GetType().Name,
                 httpContext.Response.StatusCode = StatusCodes.Status500InternalServerError
