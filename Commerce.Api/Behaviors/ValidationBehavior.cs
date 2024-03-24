@@ -15,7 +15,16 @@ public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TReq
         {
             throw new ValidationException(failures);
         }
-
         return await next();
     }
+
 }
+
+// public class AnotherBehavior<TRequest, TResponse>(IEnumerable<IValidator<TRequest>> validators) : IPipelineBehavior<TRequest, TResponse> where TRequest : ICommand<TResponse>
+// {
+//     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+//     {
+//         return await next();
+//     }
+// }
+

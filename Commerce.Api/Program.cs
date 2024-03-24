@@ -15,6 +15,7 @@ builder.Services.AddMediatR(config =>
 {
     config.RegisterServicesFromAssembly(assembly);
     config.AddOpenBehavior(typeof(ValidationBehavior<,>));
+    //config.AddOpenBehavior(typeof(AnotherBehavior<,>));
 });
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

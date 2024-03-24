@@ -8,5 +8,4 @@ public class ProductEntity
     public string Category { get; set; } = null!;
     public string Brand { get; set; } = null!;
     public decimal Price { get; set; }
-
 }
